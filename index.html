@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+
+<script>
+    function calculate(){
+      console.log('pressed');
+      pinput = document.getElementsByTagName('input');
+      p = pinput[0].value;
+      console.log(p);
+     
+      if (p<0){
+        document.getElementById('out').innerText = 'so schlecht ist nichtmal Lena';
+      }
+      else if (p>15){
+        document.getElementById('out').innerText = 'das schafft nichtmal David';
+      }
+      else {
+        document.getElementById('out').innerText = n;
+         n = (18-p)/3; //17 oder 18?
+         console.log(n);
+      }
+      
+    }
+ </script>
+
+<body>
+  <input></input>
+  <button type="button" onclick="calculate()"><span>Rechnen</span></button>
+  <div>
+    deine wenigen Punkte in Noten: 
+  <span id="out"></span>
+  </div>
+  
+
+</body>
+
+</html>
