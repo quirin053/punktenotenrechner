@@ -21,7 +21,7 @@
         document.getElementById('out').innerText = 'das schafft nichtmal David';
       }
       else {
-         n = (18-p)/3; //17 oder 18?
+         n = Math.round(((18-p)/3)*100)/100; //17 oder 18?
          console.log(n);
          document.getElementById('out').innerText = n;
       }
