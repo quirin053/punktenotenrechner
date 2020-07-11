@@ -8,6 +8,7 @@
 </head>
 
 <script>
+  var oldform = false;
     function calculate(){
       console.log('pressed');
       pinput = document.getElementsByTagName('input');
@@ -21,11 +22,30 @@
         document.getElementById('out').innerText = 'das schafft nicht mal David';
       }
       else {
-         n = Math.round(((18-p)/3)*100)/100; //17 oder 18?
+        if(oldform){
+          n = Math.round(((17-p)/3)*100)/100;
+        }else{
+          n = Math.round(((18-p)/3)*100)/100;
+        }
          console.log(n);
          document.getElementById('out').innerText = n;
       }
       
+    };
+
+    function changed(checkbox){
+      if(checkbox.checked == true){
+        oldform = true;
+        document.getElementById("minuend").innerText = "17";
+        document.getElementById("ex15").innerText = "0,67";
+        document.getElementById("ex0").innerText = "5,67";
+      }else{
+        oldform = false;
+        document.getElementById("minuend").innerText = "18";
+        document.getElementById("ex15").innerText = "1,0";
+        document.getElementById("ex0").innerText = "6,0";
+      }
+      calculate()
     }
  </script>
 
@@ -36,20 +56,23 @@
     deine wenigen Punkte in Noten: 
   <span id="out"></span>
   </div>
-  <div>verwendete Formel: <span>(<b>18</b> - Punkteschnitt) / 3</span>
+
+  <div>verwendete Formel: <span>(<b id="minuend">18</b> - Punkteschnitt) / 3</span>
     <br>
     <table>
       <tr>
         <td>15P</td>
         <td>--</td>
-        <td>1,0</td>
+        <td id="ex15">1,0</td>
       </tr>
       <tr>
         <td>0P</td>
         <td>--</td>
-        <td>6,0</td>
+        <td id="ex0">6,0</td>
       </tr>
     </table>
+
+    in der Formel 17 statt 18 verwenden: <input type="checkbox" onchange="changed(this)">
   </div>
   
 
