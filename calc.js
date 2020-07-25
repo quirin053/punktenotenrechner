@@ -61,11 +61,16 @@ function changed(checkbox){
     calculate();
 }
 
-function add(){
-    n_list.push(parseInt(linput.value));
+function add(val){
+    n_list.push(parseInt(val));
     console.log(n_list);
     let sum = n_list.reduce((previous, current) => current += previous);
     console.log(sum);
     let avg = sum / n_list.length;
     document.getElementById('listout').innerText = avg;
+}
+
+function reset(){
+    n_list = []
+    document.getElementById('listout').innerText = '';
 }
