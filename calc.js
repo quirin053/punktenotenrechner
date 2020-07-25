@@ -1,13 +1,24 @@
 let pinput;
 let oldform;
-function init() {
+let n_list = []
+let linput;
+
+function init(){
     oldform = false;
     pinput = document.getElementById('input');
+    linput = document.getElementById('linput');
 
     pinput.addEventListener("keyup", function(event) {
         if (event.keyCode === 13) {
             event.preventDefault();
             document.getElementById("cbutton").click();
+        }
+    });
+
+    linput.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("lbutton").click();
         }
     });
 }
@@ -35,7 +46,7 @@ function calculate(){
     
 };
 
-function changed(checkbox) {
+function changed(checkbox){
     if (checkbox.checked == true) {
     oldform = true;
     document.getElementById("minuend").innerText = "17";
@@ -48,4 +59,13 @@ function changed(checkbox) {
     document.getElementById("ex0").innerText = "6,0";
     }
     calculate();
+}
+
+function add(){
+    n_list.push(parseInt(linput.value));
+    console.log(n_list);
+    let sum = n_list.reduce((previous, current) => current += previous);
+    console.log(sum);
+    let avg = sum / n_list.length;
+    document.getElementById('listout').innerText = avg;
 }
