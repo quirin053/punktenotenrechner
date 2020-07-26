@@ -29,13 +29,7 @@ function calculate(){
     p = pinput.value;
     console.log(p);
     
-    if (p<0) {
-        document.getElementById('out').innerText = 'so schlecht ist nicht mal Lena';
-    }
-    else if (p>15) {
-        document.getElementById('out').innerText = 'das schafft nicht mal David';
-    }
-    else {
+    if (validate(p, true)) {
         if (oldform) {
             n = Math.round(((17-p)/3)*100)/100;
         } else {
@@ -63,19 +57,39 @@ function changed(checkbox){
 }
 
 function add(val){
-    n_list.push(parseInt(val));
-    console.log(n_list);
-    let sum = n_list.reduce((previous, current) => current += previous);
-    console.log(sum);
-    let avg = sum / n_list.length;
-    document.getElementById('listout').innerText = Math.round((avg)*100)/100;
-    let elem = document.createElement("LI");
-    elem.innerHTML = val;
-    plist.appendChild(elem);
+    if (validate(val)) {
+        n_list.push(parseInt(val));
+        console.log(n_list);
+        let sum = n_list.reduce((previous, current) => current += previous);
+        console.log(sum);
+        let avg = sum / n_list.length;
+        document.getElementById('listout').innerText = Math.round((avg)*100)/100;
+        let elem = document.createElement("LI");
+        elem.innerHTML = val;
+        plist.appendChild(elem);
+    }
 }
 
 function reset(){
     n_list = []
     document.getElementById('listout').innerText = '';
     plist.innerHTML = '';
+}
+
+function validate(val, j = false){
+    if (val<0) {
+        if (j) {
+            document.getElementById('out').innerText = 'so schlecht ist nicht mal Lena';
+        }
+        return false;
+    }
+    else if (val>15) {
+        if (j) {
+            document.getElementById('out').innerText = 'das schafft nicht mal David';
+        }
+        return false;
+    }
+    else {
+        return true;
+    }
 }
