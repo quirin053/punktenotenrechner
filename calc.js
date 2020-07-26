@@ -7,6 +7,7 @@ function init(){
     oldform = false;
     pinput = document.getElementById('input');
     linput = document.getElementById('linput');
+    plist = document.getElementById('plist');
 
     pinput.addEventListener("keyup", function(event) {
         if (event.keyCode === 13) {
@@ -68,6 +69,9 @@ function add(val){
     console.log(sum);
     let avg = sum / n_list.length;
     document.getElementById('listout').innerText = Math.round((avg)*100)/100;
+    let elem = document.createElement("LI")
+    elem.innerHTML = val
+    plist.appendChild(elem)
 }
 
 function reset(){
