@@ -67,7 +67,7 @@ function add(val){
     let sum = n_list.reduce((previous, current) => current += previous);
     console.log(sum);
     let avg = sum / n_list.length;
-    document.getElementById('listout').innerText = avg;
+    document.getElementById('listout').innerText = Math.round((avg)*100)/100;
 }
 
 function reset(){
