@@ -69,12 +69,13 @@ function add(val){
     console.log(sum);
     let avg = sum / n_list.length;
     document.getElementById('listout').innerText = Math.round((avg)*100)/100;
-    let elem = document.createElement("LI")
-    elem.innerHTML = val
-    plist.appendChild(elem)
+    let elem = document.createElement("LI");
+    elem.innerHTML = val;
+    plist.appendChild(elem);
 }
 
 function reset(){
     n_list = []
     document.getElementById('listout').innerText = '';
+    plist.innerHTML = '';
 }
