@@ -93,3 +93,8 @@ function validate(val, j = false){
         return true;
     }
 }
+
+function recalc() {
+    pinput.value = document.getElementById('listout').innerText;
+    calculate();
+}
