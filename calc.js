@@ -1,10 +1,10 @@
 let pinput;
-let oldform;
+let altform;
 let n_list = []
 let linput;
 
 function init(){
-    oldform = false;
+    altform = false;
     pinput = document.getElementById('input');
     linput = document.getElementById('linput');
     plist = document.getElementById('plist');
@@ -30,10 +30,10 @@ function calculate(){
     console.log(p);
     
     if (validate(p, true)) {
-        if (oldform) {
-            n = Math.round(((17-p)/3)*100)/100;
-        } else {
+        if (altform) {
             n = Math.round(((18-p)/3)*100)/100;
+        } else {
+            n = Math.round(((17-p)/3)*100)/100;
         }
         console.log(n);
         document.getElementById('out').innerText = n;
@@ -43,15 +43,16 @@ function calculate(){
 
 function changed(checkbox){
     if (checkbox.checked == true) {
-    oldform = true;
-    document.getElementById("minuend").innerText = "17";
-    document.getElementById("ex15").innerText = "0,67";
-    document.getElementById("ex0").innerText = "5,67";
+        altform = true;
+        document.getElementById("minuend").innerText = "18";
+        document.getElementById("ex15").innerText = "1,0";
+        document.getElementById("ex0").innerText = "6,0";
+        
     } else {
-    oldform = false;
-    document.getElementById("minuend").innerText = "18";
-    document.getElementById("ex15").innerText = "1,0";
-    document.getElementById("ex0").innerText = "6,0";
+        altform = false;
+        document.getElementById("minuend").innerText = "17";
+        document.getElementById("ex15").innerText = "0,67";
+        document.getElementById("ex0").innerText = "5,67";
     }
     calculate();
 }
