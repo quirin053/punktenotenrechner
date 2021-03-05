@@ -14,12 +14,12 @@
     <div>
       <input type="number" id="input">
       <button type="button" id="cbutton" onclick="calculate()"><span>Rechnen</span></button>
-      <div>
+      <div class="text">
         deine wenigen Punkte in Noten: 
-      <span id="out"></span>
+        <span id="out"></span>
       </div>
 
-      <div>verwendete Formel: <span>(<b id="minuend">17</b> - Punkteschnitt) / 3</span>
+      <div class="text">verwendete Formel: <span>(<b id="minuend">17</b> - Punkteschnitt) / 3</span>
         <br>
         <table>
           <tr>
@@ -41,12 +41,12 @@
     <hr>
 
     <div>
-      Punkteschnitt aus Einzelnotenpunkten berechnen:
+      <a class="text">Punkteschnitt aus Einzelnoten berechnen:</a>
       <br>
       <input type="number" id="linput">
       <button type="button" id="lbutton" onclick="add(linput.value)"><span>Hinzufügen</span></button>
       <ol id="plist"></ol>
-      Ergebnis: <span id="listout"></span> Punkte 
+      <a class="text">Ergebnis: <span id="listout"></span> Punkte </a>
       <br><button type="button" id="resbutton" onclick="reset()"><span>Zurücksetzen</span></button>
       <button type="button" id="rcbutton" onclick="recalc()"><span>Umrechnen</span></button>
     </div>
