@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Punkteumrechner</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/fbbc4a7a99.js" crossorigin="anonymous"></script>
 </head>
 
 
@@ -15,7 +16,7 @@
       <input type="number" id="input">
       <button type="button" id="cbutton" onclick="calculate()"><span>Rechnen</span></button>
       <div class="text">
-        deine wenigen Punkte in Noten: 
+        deine wenigen Punkte als Note: 
         <span id="out"></span>
       </div>
 
@@ -45,12 +46,19 @@
       <br>
       <input type="number" id="linput">
       <button type="button" id="lbutton" onclick="add(linput.value)"><span>Hinzufügen</span></button>
-      <ol id="plist"></ol>
+      <ul id="plist"></ul>
       <a class="text">Ergebnis: <span id="listout"></span> Punkte </a>
       <br><button type="button" id="resbutton" onclick="reset()"><span>Zurücksetzen</span></button>
       <button type="button" id="rcbutton" onclick="recalc()"><span>Umrechnen</span></button>
     </div>
+
+    <div class="center" id="social">
+      <a href="https://github.com/quirin053/punktenotenrechner"><i class="fab fa-github"></i></a>
+    </div>
+
+
   </div>
+
 
 </body>
 
