@@ -1,0 +1,61 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main {
+    margin-top: 50px;
+}
+
+body {
+    background: #518dc2;
+    color:aliceblue;
+}
+
+li {
+    margin: 15px;
+}
+
+input[type=number], button, ol {
+    color:aliceblue;
+    margin: 15px;
+    outline: none;
+    border: none;
+    border-radius: 29px;
+    background: #518dc2;
+    box-shadow:  9px 9px 26px #4578a5,
+                -9px -9px 26px #5da2df;
+}
+
+input[type=number] {
+    height: 30px;
+    padding: 10px;
+}
+
+button {
+    padding: 15px;
+    transition-duration: 0.4s;
+}
+
+ol{
+    padding: 15px;
+}
+
+button:hover {
+    box-shadow:     -9px 9px 26px #4578a5,
+                    9px -9px 26px #5da2df;
+}
+
+button:active {
+    box-shadow: inset -9px 9px 26px #4578a5,
+            inset 9px -9px 26px #5da2df;
+}
+
+hr {
+    border: 10px solid #28587B;
+    border-radius: 29px;
+    background: linear-gradient(225deg, #2b5e84, #244f6f);
+    box-shadow:  -9px 9px 26px #224b69,
+                9px -9px 26px #2e658d;
+}                

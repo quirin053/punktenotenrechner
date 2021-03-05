@@ -5,46 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Punkteumrechner</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 
-<body onload="init()">
-  <input type="number" id="input">
-  <button type="button" id="cbutton" onclick="calculate()"><span>Rechnen</span></button>
-  <div>
-    deine wenigen Punkte in Noten: 
-  <span id="out"></span>
-  </div>
+<body onload="init()"  class="center">
+  <div id="main">
+    <div>
+      <input type="number" id="input">
+      <button type="button" id="cbutton" onclick="calculate()"><span>Rechnen</span></button>
+      <div>
+        deine wenigen Punkte in Noten: 
+      <span id="out"></span>
+      </div>
 
-  <div>verwendete Formel: <span>(<b id="minuend">17</b> - Punkteschnitt) / 3</span>
-    <br>
-    <table>
-      <tr>
-        <td>15P</td>
-        <td>=</td>
-        <td id="ex15">0,67</td>
-      </tr>
-      <tr>
-        <td>0P</td>
-        <td>=</td>
-        <td id="ex0">5,67</td>
-      </tr>
-    </table>
+      <div>verwendete Formel: <span>(<b id="minuend">17</b> - Punkteschnitt) / 3</span>
+        <br>
+        <table>
+          <tr>
+            <td>15P</td>
+            <td>=</td>
+            <td id="ex15">0,67</td>
+          </tr>
+          <tr>
+            <td>0P</td>
+            <td>=</td>
+            <td id="ex0">5,67</td>
+          </tr>
+        </table>
 
-    in der Formel 18 statt 17 verwenden: <input type="checkbox" onchange="changed(this)">
-  </div>
-  
-  <hr>
+        in der Formel 18 statt 17 verwenden: <input type="checkbox" onchange="changed(this)">
+      </div>
+    </div>
+    
+    <hr>
 
-  <div>
-    Punkteschnitt aus Einzelnotenpunkten berechnen:
-    <br>
-    <input type="number" id="linput">
-    <button type="button" id="lbutton" onclick="add(linput.value)"><span>Hinzufügen</span></button>
-    <ol id="plist"></ol>
-    Ergebnis: <span id="listout"></span> Punkte 
-    <br><button type="button" id="resbutton" onclick="reset()"><span>Zurücksetzen</span></button>
-    <button type="button" id="rcbutton" onclick="recalc()"><span>Umrechnen</span></button>
+    <div>
+      Punkteschnitt aus Einzelnotenpunkten berechnen:
+      <br>
+      <input type="number" id="linput">
+      <button type="button" id="lbutton" onclick="add(linput.value)"><span>Hinzufügen</span></button>
+      <ol id="plist"></ol>
+      Ergebnis: <span id="listout"></span> Punkte 
+      <br><button type="button" id="resbutton" onclick="reset()"><span>Zurücksetzen</span></button>
+      <button type="button" id="rcbutton" onclick="recalc()"><span>Umrechnen</span></button>
+    </div>
   </div>
 
 </body>
