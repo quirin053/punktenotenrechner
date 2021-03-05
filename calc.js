@@ -38,7 +38,7 @@ function calculate(){
         console.log(n);
         document.getElementById('out').innerText = n;
     }
-    
+    document.getElementById('input').focus();
 };
 
 function changed(checkbox){
@@ -69,6 +69,7 @@ function add(val){
         elem.innerHTML = val;
         plist.appendChild(elem);
     }
+    document.getElementById('linput').focus();
 }
 
 function reset(){
