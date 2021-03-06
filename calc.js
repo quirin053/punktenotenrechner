@@ -1,5 +1,4 @@
 let pinput;
-let altform;
 let n_list = []
 let linput;
 
@@ -30,32 +29,13 @@ function calculate(){
     console.log(p);
     
     if (validate(p, true)) {
-        if (altform) {
-            n = Math.round(((18-p)/3)*100)/100;
-        } else {
-            n = Math.round(((17-p)/3)*100)/100;
-        }
+        n = Math.round(((17-p)/3)*100)/100;
         console.log(n);
         document.getElementById('out').innerText = n;
     }
     document.getElementById('input').focus();
 };
 
-function changed(checkbox){
-    if (checkbox.checked == true) {
-        altform = true;
-        document.getElementById("minuend").innerText = "18";
-        document.getElementById("ex15").innerText = "1,0";
-        document.getElementById("ex0").innerText = "6,0";
-        
-    } else {
-        altform = false;
-        document.getElementById("minuend").innerText = "17";
-        document.getElementById("ex15").innerText = "0,67";
-        document.getElementById("ex0").innerText = "5,67";
-    }
-    calculate();
-}
 
 function add(val){
     if (validate(val)) {
