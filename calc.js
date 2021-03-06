@@ -24,14 +24,17 @@ function init(){
 }
 
 function calculate(){
-    console.log('pressed');
+    // console.log('pressed');
     p = pinput.value;
-    console.log(p);
+    // console.log(p);
     
     if (validate(p, true)) {
         n = Math.round(((17-p)/3)*100)/100;
-        console.log(n);
+        // console.log(n);
         document.getElementById('out').innerText = n;
+        pinput.setAttribute('class', '');
+    } else {
+        pinput.setAttribute('class', 'justwrong');
     }
     document.getElementById('input').focus();
 };
@@ -39,15 +42,18 @@ function calculate(){
 
 function add(val){
     if (validate(val)) {
+        document.getElementById('linput').setAttribute('class', '');
         n_list.push(parseInt(val));
-        console.log(n_list);
+        // console.log(n_list);
         let sum = n_list.reduce((previous, current) => current += previous);
-        console.log(sum);
+        // console.log(sum);
         let avg = sum / n_list.length;
         document.getElementById('listout').innerText = Math.round((avg)*100)/100;
         let elem = document.createElement("LI");
         elem.innerHTML = val;
         plist.appendChild(elem);
+    } else {
+        document.getElementById('linput').setAttribute('class', 'justwrong');
     }
     document.getElementById('linput').focus();
 }

@@ -4,6 +4,10 @@
     align-items: center;
 }
 
+.justwrong {
+    background:#b82020cc !important;
+}
+
 #main {
     margin-top: 50px;
 }
