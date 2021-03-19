@@ -4,7 +4,8 @@ let linput;
 
 function init(){
     altform = false;
-    pinput = document.getElementById('input');
+    pinput = document.getElementById('pinput');
+    ninput = document.getElementById('ninput');
     linput = document.getElementById('linput');
     plist = document.getElementById('plist');
 
@@ -23,20 +24,39 @@ function init(){
     });
 }
 
-function calculate(){
-    // console.log('pressed');
-    p = pinput.value;
-    // console.log(p);
-    
-    if (validate(p, true)) {
-        n = Math.round(((17-p)/3)*100)/100;
-        // console.log(n);
-        document.getElementById('out').innerText = n;
-        pinput.setAttribute('class', '');
-    } else {
-        pinput.setAttribute('class', 'justwrong');
+function calculate(direction){
+    console.log("triggered")
+    console.log(direction)
+
+    x = ((direction==="pn") ? pinput.value : ninput.value);
+    if (x > 5.67 && direction==="np") {
+        x = 5.67
     }
-    document.getElementById('input').focus();
+
+    if (x) {
+        if (validate(x, direction)) {
+            pinput.setAttribute('class', '');
+            ninput.setAttribute('class', '');
+            if (direction==="pn") {
+                n = Math.round(((17-x)/3)*100)/100;
+                ninput.value = n;
+                pinput.focus();
+            } else {
+                p = Math.round(17-(x*3));
+                pinput.value = p;
+                ninput.focus();
+            }
+        } else {
+            pinput.setAttribute('class', 'justwrong');
+            ninput.setAttribute('class', 'justwrong');
+        }
+    } else {
+        pinput.value = '';
+        ninput.value = '';
+        pinput.setAttribute('class', '');
+        ninput.setAttribute('class', '');
+    }
+
 };
 
 
@@ -64,22 +84,28 @@ function reset(){
     plist.innerHTML = '';
 }
 
-function validate(val, j = false){
-    if (val<0) {
-        if (j) {
-            document.getElementById('out').innerText = 'so schlecht ist nicht mal Lena';
+function validate(val, direction){
+    if (direction==="pn") {
+        if (val < 0) {
+            return false;
         }
-        return false;
-    }
-    else if (val>15) {
-        if (j) {
-            document.getElementById('out').innerText = 'das schafft nicht mal David';
+        else if (val>15) {
+            return false;
         }
-        return false;
+        else {
+            return true;
+        }
+    } else {
+        console.log("npval")
+        if (val < 0.67) {
+            console.log("npvalfalse")
+            return false;
+        }
+        else {
+            return true;
+        }
     }
-    else {
-        return true;
-    }
+    
 }
 
 function recalc() {
